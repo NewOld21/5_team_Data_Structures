@@ -111,7 +111,24 @@ int main()
 
 void removeUntil(Stack *s, int value)
 {
-/* add your code here */
+	LinkedList nl;
+	nl.head =NULL;
+	nl.size = 0;
+	if(isEmptyStack(s)){
+		return;
+	}
+	
+	int size = s->ll.size;
+	for (int i=0; i<size;i++){
+		int item = pop(s);
+		if(item==value){
+			s->ll = nl;
+			push(s,item);
+			return;
+		}
+		insertNode(&nl,0,item);
+	}
+	return;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
